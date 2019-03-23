@@ -27,9 +27,9 @@ export class AppComponent implements OnInit{
 
   ngOnInit() {
     //set google maps defaults
-    this.zoom = 4;
-    this.latitude = 39.8282;
-    this.longitude = -98.5795;
+    this.zoom = 8;
+    this.latitude = 49.8489;
+    this.longitude = 3.2876;
 
     //create search FormControl
     this.searchControl = new FormControl();
