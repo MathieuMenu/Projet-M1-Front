@@ -1,36 +1,18 @@
-
 sudo: required
-
+dist: trusty
 addons:
-
-  chrome: stable
-
-
-
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
 language: node_js
-
 node_js:
-
-  - "10"
-
-
-
-branches:
-
-  only:
-
-    - first-feature
-
-
-
+  - 10
 before_script:
-
-  - npm install -g @angular/cli
-
-
-
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+install:
+  - npm install
 script:
-
-  - ng build --prod --aot
-
-  - ng test
+  - npm run ci
