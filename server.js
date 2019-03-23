@@ -17,6 +17,10 @@ res.sendFile(path.join(__dirname+'/dist/mmfront/index.html'));
 
 });
 
+app.get('/heroku-env',function(req,res){
+	res.json(process.env.key)
+})
+
 // Start the app by listening on the default Heroku port
 
 app.listen(process.env.PORT || 8080);
