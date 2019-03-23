@@ -13,7 +13,7 @@ import { AppComponent } from './app.component';
   ],
   imports: [
   	AgmCoreModule.forRoot({
-      apiKey: "",
+      apiKey: makey,
       libraries: ["places"]
     }),
     BrowserModule,
