@@ -1,12 +1,18 @@
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
+import * as VueGoogleMaps from "vue2-google-maps";
 
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: process.env.key,
+    libraries: "places" // necessary for places input
+  }
+});
 
-if (environment.production) {
-  enableProdMode();
-}
+Vue.config.productionTip = false;
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+new Vue({
+  router,
+  render: h => h(App)
+}).$mount("#app");
