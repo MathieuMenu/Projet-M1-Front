@@ -7,18 +7,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { Service } from './app.service';
-
 import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    Service
+    AppComponent
   ],
   imports: [
   	AgmCoreModule.forRoot({
-      apiKey: token,
+      apiKey: environment.key,
       libraries: ["places"]
     }),
     BrowserModule,
@@ -29,12 +26,4 @@ import { environment } from '../environments/environment';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
-
-   constructor(private Service: Service) {}
-
-      this.Service
-        .getEnv().subscribe(res => {
-          this.token = res; 
-    })
-}
+export class AppModule { }
