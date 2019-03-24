@@ -16,7 +16,8 @@ import { environment } from '../environments/environment';
   imports: [
   	AgmCoreModule.forRoot({
       apiKey: environment.key,
-      libraries: ["places"]
+      libraries: ["places"],
+      apiVersion: '3.31'
     }),
     BrowserModule,
     AppRoutingModule,
