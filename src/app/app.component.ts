@@ -16,6 +16,7 @@ export class AppComponent implements OnInit{
   public longitude: number;
   public searchControl: FormControl;
   public zoom: number;
+  public gestureHandling: string;
 
   @ViewChild("search")
   public searchElementRef: ElementRef;
