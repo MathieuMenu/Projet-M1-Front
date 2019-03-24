@@ -16,5 +16,5 @@ install:
   - npm install
 script:
   - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
-  deploy:
-    provider: heroku
+deploy:
+  provider: heroku
