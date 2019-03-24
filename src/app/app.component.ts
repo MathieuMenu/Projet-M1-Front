@@ -30,6 +30,7 @@ export class AppComponent implements OnInit{
     this.zoom = 8;
     this.latitude = 49.8489;
     this.longitude = 3.2876;
+    this.gestureHandling = "'cooperative'";
 
     //create search FormControl
     this.searchControl = new FormControl();
