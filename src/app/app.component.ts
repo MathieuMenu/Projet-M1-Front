@@ -34,6 +34,7 @@ export class AppComponent implements OnInit{
     //create search FormControl
     this.searchControl = new FormControl();
 
+
     //set current position
     this.setCurrentPosition();
 
