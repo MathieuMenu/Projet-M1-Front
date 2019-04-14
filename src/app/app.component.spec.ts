@@ -11,6 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment';
 import { MapsAPILoader } from '@agm/core';
 
+import { AuthService } from './auth/auth.service';
+
 describe('AppComponent', () => {
 
   beforeEach(async(() => {
@@ -28,6 +30,9 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      providers: [
+        AuthService
+      ]
     }).compileComponents();
   }));
 
