@@ -4,6 +4,8 @@ import { ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MapsAPILoader } from '@agm/core';
 
+import { AuthService } from './auth/auth.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -22,10 +24,18 @@ export class AppComponent implements OnInit{
 
   constructor(
     private mapsAPILoader: MapsAPILoader,
-    private ngZone: NgZone
-  ) {}
+    private ngZone: NgZone,
+    public auth: AuthService
+  ) {
+    auth.handleAuthentication();
+    auth.scheduleRenewal();
+  }
 
   ngOnInit() {
+    if (this.auth.isAuthenticated()) {
+      this.auth.renewTokens();
+    }
+
     //set google maps defaults
     this.zoom = 8;
     this.latitude = 49.8489;
