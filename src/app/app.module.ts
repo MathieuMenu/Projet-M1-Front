@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 
 import { HomeComponent } from './home/home.component';
-
 import { AuthService } from './auth/auth.service';
 import { ProfileComponent } from './profile/profile.component';
 import { CallbackComponent } from './callback/callback.component';
