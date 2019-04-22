@@ -21,8 +21,4 @@ describe('AuthService', () => {
     expect(service).toBeTruthy();
   }));
 
-  it('should ...', inject([Router], (route: Router) => {
-    expect(route).toBeTruthy();
-  }));
-
 });
