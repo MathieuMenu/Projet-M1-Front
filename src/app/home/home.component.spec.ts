@@ -12,12 +12,27 @@ describe('HomeComponent', () => {
   let fixture: ComponentFixture<HomeComponent>;
 
   beforeEach(async(() => {
+    
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent ],
-      providers: [ AuthService, Router ],
-    })
+      imports: [
+        AgmCoreModule.forRoot({
+        apiKey: environment.key,
+        libraries: ["places"],
+        }),
+        RouterTestingModule,
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule
+      ],
+      declarations: [
+        AppComponent
+      ],
+      providers: [
+        AuthService,
+        Router
+      ]
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(HomeComponent);

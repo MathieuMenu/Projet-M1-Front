@@ -17,25 +17,11 @@ describe('AppComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        AgmCoreModule.forRoot({
-        apiKey: environment.key,
-        libraries: ["places"],
-        }),
-        RouterTestingModule,
-        BrowserModule,
-        FormsModule,
-        ReactiveFormsModule
-      ],
-      declarations: [
-        AppComponent
-      ],
-      providers: [
-        AuthService
-      ]
-    }).compileComponents();
+      declarations: [ HomeComponent ],
+      providers: [ AuthService ],
+    })
+    .compileComponents();
   }));
-
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
@@ -49,11 +35,10 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('mmfront');
   });
 
-  /*it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  beforeEach(() => {
+    fixture = TestBed.createComponent(HomeComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to mmfront!');
-  });*/
+  });
   
 });
