@@ -132,5 +132,14 @@
       }
     }
   },
-  "defaultProject": "mmfront"
+  "defaultProject": "mmfront",
+  "schematics": {
+    "@schematics/angular:component": {
+      "prefix": "app",
+      "styleext": "css"
+    },
+    "@schematics/angular:directive": {
+      "prefix": "app"
+    }
+  }
 }
