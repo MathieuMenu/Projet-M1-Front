@@ -19,6 +19,10 @@ export class HomeComponent implements OnInit{
   public searchControl: FormControl;
   public zoom: number;
 
+  public persoLong:number;
+  public persoLat:number;
+  public panier:any[] = new Array();
+
   @ViewChild("search")
   public searchElementRef: ElementRef;
 
@@ -70,6 +74,36 @@ export class HomeComponent implements OnInit{
         this.zoom = 12;
       });
     }
+  }
+
+  getCoords(event){
+    console.log(event.coords);
+    this.persoLat = event.coords.lat;
+    this.persoLong = event.coords.lng;
+  }
+
+  addPanier(){
+
+    var titre = document.getElementsByClassName("title");
+
+    var address = document.getElementsByClassName("address-line");
+
+    var poi = {
+      long:this.persoLong,
+      lat:this.persoLat,
+      add1:address[0].innerHTML,
+      add2:address[1].innerHTML,
+      add3:address[2].innerHTML,
+      titre:titre[0].innerHTML
+    }
+
+    console.log(poi);
+
+    this.panier.push(poi);
+  }
+
+  showPanier(){
+    console.log(this.panier);
   }
 
 }
