@@ -31,7 +31,6 @@ export class HomeComponent implements OnInit{
   constructor(public auth: AuthService,private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private mongoservice: MongoService) { }
 
   get expiresAt() {
-    this.profile = this.auth.userProfile;
     return this.auth.expiresAt;
   }
 
