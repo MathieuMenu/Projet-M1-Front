@@ -12,6 +12,13 @@
       <button
         class="btn btn-primary btn-margin"
         *ngIf="auth.isAuthenticated()"
+        routerLink="/panier">
+          Panier
+      </button>
+
+      <button
+        class="btn btn-primary btn-margin"
+        *ngIf="auth.isAuthenticated()"
         routerLink="/profile">
           Profil
       </button>

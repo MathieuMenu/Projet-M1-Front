@@ -5,6 +5,8 @@ import { ElementRef, NgZone, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MapsAPILoader } from '@agm/core';
 
+import { MongoService } from './../service/mongo.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,6 +14,7 @@ import { MapsAPILoader } from '@agm/core';
 })
 export class HomeComponent implements OnInit{
 
+  profile: any;
   title = 'mmfront';
 
   public latitude: number;
@@ -21,12 +24,11 @@ export class HomeComponent implements OnInit{
 
   public persoLong:number;
   public persoLat:number;
-  public panier:any[] = new Array();
 
   @ViewChild("search")
   public searchElementRef: ElementRef;
 
-  constructor(public auth: AuthService,private mapsAPILoader: MapsAPILoader, private ngZone: NgZone) { }
+  constructor(public auth: AuthService,private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private mongoservice: MongoService) { }
 
   get expiresAt() {
     return this.auth.expiresAt;
@@ -64,6 +66,11 @@ export class HomeComponent implements OnInit{
         });
       });
     });
+
+    if (this.auth.userProfile) {
+      this.profile = this.auth.userProfile;
+    }
+    
   }
 
   private setCurrentPosition() {
@@ -94,16 +101,13 @@ export class HomeComponent implements OnInit{
       add1:address[0].innerHTML,
       add2:address[1].innerHTML,
       add3:address[2].innerHTML,
-      titre:titre[0].innerHTML
+      titre:titre[0].innerHTML,
+      email:this.profile.email
     }
 
     console.log(poi);
 
-    this.panier.push(poi);
-  }
-
-  showPanier(){
-    console.log(this.panier);
+    this.mongoservice.saveLocation(poi).subscribe()
   }
 
 }

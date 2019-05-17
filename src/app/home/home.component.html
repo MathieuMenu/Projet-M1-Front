@@ -1,15 +1,22 @@
 <div class="container">
       <h1>Naviguez pour ajouter vos lieux.</h1>
+
       <div class="form-group">
         <input class="perso" placeholder="Rechercher une ville" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
       </div>
+
       <div style="padding-bottom: 5px;">
-      <button (click)="addPanier()">+</button>
-      <button (click)="showPanier()">Voir le panier</button>
+
+        <div *ngIf="auth.isAuthenticated()">
+        <button (click)="addPanier()">+</button>
+        </div>
+
       </div>
+
       <agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="true" [zoom]="zoom" (mapClick)="getCoords($event)">
         <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
       </agm-map>
+      
 </div>
 
 
