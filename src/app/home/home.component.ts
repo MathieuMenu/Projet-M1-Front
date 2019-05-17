@@ -102,7 +102,7 @@ export class HomeComponent implements OnInit{
       add2:address[1].innerHTML,
       add3:address[2].innerHTML,
       titre:titre[0].innerHTML,
-      email:this.profile.email
+      email:this.profile.nickname
     }
 
     console.log(poi);
