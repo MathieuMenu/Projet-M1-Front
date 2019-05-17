@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { AuthService } from './../auth/auth.service';
-import { AuthService } from './../service/mongo.service';
+import { MongoService } from './../service/mongo.service';
 
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserModule } from '@angular/platform-browser';
