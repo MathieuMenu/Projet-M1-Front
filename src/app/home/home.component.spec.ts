@@ -4,6 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { AuthService } from './../auth/auth.service';
+import { AuthService } from './../service/mongo.service';
 
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserModule } from '@angular/platform-browser';
@@ -35,6 +36,7 @@ describe('HomeComponent', () => {
       ],
       providers: [
         AuthService,
+        MongoService,
       ],
     })
     .compileComponents();
@@ -53,6 +55,10 @@ describe('HomeComponent', () => {
 
   it('should ...', inject([AuthService], (service: AuthService) => {
     expect(service).toBeTruthy();
+  }));
+
+  it('should ...', inject([MongoService], (servicemongo: MongoService) => {
+    expect(servicemongo).toBeTruthy();
   }));
   
 });
