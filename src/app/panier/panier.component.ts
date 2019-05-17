@@ -13,7 +13,7 @@ export class PanierComponent implements OnInit {
   constructor(private mongoservice: MongoService) { }
 
   ngOnInit() {
-  	this.mongoservice.getLocations().subscribe(data => this.Locations = data)
+  	this.mongoservice.getLocations().subscribe(data => this.Locations = data.json())
   }
 
 }
