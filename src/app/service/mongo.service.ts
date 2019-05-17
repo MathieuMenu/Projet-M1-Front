@@ -12,11 +12,11 @@ export class MongoService {
 
 	saveLocation(location){
 		return this.http.post('https://mmback.herokuapp.com/api/SaveLocation/',location)
-		.map((response: Response) => response.json())
+		//.map((response: Response) => response.json())
 	}
 
 	getLocations(){
 		return this.http.get('https://mmback.herokuapp.com/api/getLocations/')
-		.map((response: Response) => response.json())
+		//.map((response: Response) => response.json())
 	}
 }
