@@ -18,6 +18,10 @@ export class PanierComponent implements OnInit {
 
   	if (this.auth.userProfile) {
       this.profile = this.auth.userProfile;
+    } else {
+      this.auth.getProfile((err, profile) => {
+        this.profile = profile;
+      });
     }
     
   	this.mongoservice.getLocationsByEmail(this.profile.nickname).subscribe(data => this.Locations = data.json())
