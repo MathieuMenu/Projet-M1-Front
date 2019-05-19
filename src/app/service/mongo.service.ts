@@ -21,7 +21,7 @@ export class MongoService {
 	}
 
 	getLocationsByEmail(email){
-		return this.http.get('https://mmback.herokuapp.com/api/getLocationsByEmail/',{params: email})
+		return this.http.get('https://mmback.herokuapp.com/api/getLocationsByEmail/',{params: { email: email }})
 		//.map((response: Response) => response.json())
 	}
 }
