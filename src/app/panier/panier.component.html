@@ -1,1 +1,3 @@
- <li *ngFor="let obj of Locations">{{obj | json}}</li>
+ <div *ngIf="auth.isAuthenticated()">
+ 	<li *ngFor="let obj of Locations">{{obj | json}}</li>
+ </div>
