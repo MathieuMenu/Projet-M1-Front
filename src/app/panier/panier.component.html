@@ -1,3 +1,16 @@
  <div *ngIf="auth.isAuthenticated()">
- 	<li *ngFor="let obj of Locations">{{obj | json}}</li>
+  <table>
+  <tr>
+    <td>Id</td>
+    <td>Titre</td>
+    <td>Email</td>
+  </tr>
+
+  <tr *ngFor="let obj of Locations">
+    <td>{{obj._id}}</td>
+    <td>{{obj.titre}}</td>
+    <td>{{obj.email}}</td>
+  </tr>
+    
+  </table>
  </div>
