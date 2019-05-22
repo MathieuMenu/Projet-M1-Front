@@ -22,6 +22,8 @@ export class HomeComponent implements OnInit{
   public searchControl: FormControl;
   public zoom: number;
 
+  public testperso:any;
+
   public persoLong:number;
   public persoLat:number;
 
@@ -66,6 +68,8 @@ export class HomeComponent implements OnInit{
         });
       });
     });
+
+    this.mongoservice.getLocations().subscribe(data => this.testperso = data.json())
 
     if (this.auth.userProfile) {
       this.profile = this.auth.userProfile;
