@@ -1,6 +1,6 @@
  <div *ngIf="auth.isAuthenticated()">
   <table>
-  <tr border="1">
+  <tr style="border: 1px solid black;">
     <td>Id</td>
     <td>Titre</td>
     <td>Email</td>
@@ -11,7 +11,7 @@
     <td>Adresse 3</td>
   </tr>
 
-  <tr *ngFor="let obj of Locations" border="1">
+  <tr *ngFor="let obj of Locations" style="border: 1px solid black;">
     <td>{{obj._id}}</td>
     <td>{{obj.titre}}</td>
     <td>{{obj.email}}</td>
