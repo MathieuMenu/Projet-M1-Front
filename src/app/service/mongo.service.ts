@@ -24,4 +24,9 @@ export class MongoService {
 		return this.http.get('https://mmback.herokuapp.com/api/getLocationsByEmail/',{params: { email: email }})
 		//.map((response: Response) => response.json())
 	}
+
+	deleteLocation(id){
+		return this.http.post('https://mmback.herokuapp.com/api/deleteLocationsById/',{params: { id: id }}))
+		//.map((response: Response) => response.json())
+	}
 }
