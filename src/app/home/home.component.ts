@@ -72,7 +72,7 @@ export class HomeComponent implements OnInit{
 
     this.mongoservice.getLocations().subscribe(data => this.testperso = data.json())
 
-    this.test = json.parse(this.testperso);
+    this.test = JSON.parse(this.testperso);
 
     if (this.auth.userProfile) {
       this.profile = this.auth.userProfile;
