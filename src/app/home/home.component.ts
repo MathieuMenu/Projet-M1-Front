@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit{
   public zoom: number;
 
   public testperso:any;
-  test:any;
 
   public persoLong:number;
   public persoLat:number;
@@ -71,8 +70,6 @@ export class HomeComponent implements OnInit{
     });
 
     this.mongoservice.getLocations().subscribe(data => this.testperso = data.json())
-
-    this.test = JSON.parse(this.testperso);
 
     if (this.auth.userProfile) {
       this.profile = this.auth.userProfile;

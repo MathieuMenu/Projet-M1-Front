@@ -30,15 +30,21 @@
 <h4 *ngIf="!auth.isAuthenticated()">
   You are not logged in! Please <a (click)="auth.login()">Log In</a> to continue.
 
-  <div>
-  <li *ngFor="let obj of test">{{obj.id}}</li>
- </div>
-
  <div>
-  <ul *ngFor="let obj of testperso">
-    <li>{{obj.id}}</li>
-    <li>{{obj.titre}}</li>
-  </ul>
+  <table>
+  <tr>
+    <td>Id</td>
+    <td>Titre</td>
+    <td>Email</td>
+  </tr>
+
+  <tr *ngFor="let obj of testperso">
+    <td>{{obj._id}}</td>
+    <td>{{obj.titre}}</td>
+    <td>{{obj.email}}</td>
+  </tr>
+    
+  </table>
  </div>
 
 </h4>
