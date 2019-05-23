@@ -107,7 +107,7 @@ export class HomeComponent implements OnInit{
 
     console.log(poi);
 
-    this.mongoservice.saveLocation(poi).subscribe()
+    this.mongoservice.saveLocation(poi).subscribe(data => { alert(data.data) }, error => this.errorMessage = error)
   }
 
 }
