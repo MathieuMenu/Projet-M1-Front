@@ -26,7 +26,7 @@ export class MongoService {
 	}
 
 	deleteLocation(id){
-		return this.http.post('https://mmback.herokuapp.com/api/deleteLocationsById/',{params: { id: id }})
-		//.map((response: Response) => response.json())
+		return this.http.post('https://mmback.herokuapp.com/api/deleteLocationsById/',{params: { 'id': id }})
+		.map((response: Response) => response.json())
 	}
 }
