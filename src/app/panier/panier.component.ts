@@ -29,10 +29,8 @@ export class PanierComponent implements OnInit {
 
   delete = function(id){
 
-    alert(id);
-
     this.mongoservice.deleteLocation(id)
-    .subscribe(data => { alert(data.data) ; this.ngOnInit();}, error => this.errorMessage = error)
+    .subscribe(data => { alert(data.data) }, error => this.errorMessage = error)
 
   }
 

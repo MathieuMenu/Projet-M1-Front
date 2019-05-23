@@ -105,8 +105,6 @@ export class HomeComponent implements OnInit{
       email:this.profile.nickname
     }
 
-    console.log(poi);
-
     this.mongoservice.saveLocation(poi)
     .subscribe(data => { alert(data.data) }, error => this.errorMessage = error)
   }
