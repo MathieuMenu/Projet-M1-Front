@@ -89,7 +89,7 @@ export class HomeComponent implements OnInit{
     this.persoLong = event.coords.lng;
   }
 
-  addPanier(){
+  addPanier = function(){
 
     var titre = document.getElementsByClassName("title");
 
@@ -107,7 +107,8 @@ export class HomeComponent implements OnInit{
 
     console.log(poi);
 
-    this.mongoservice.saveLocation(poi).subscribe(data => { alert(data.data) }, error => this.errorMessage = error)
+    this.mongoservice.saveLocation(poi)
+    .subscribe(data => { alert(data.data) }, error => this.errorMessage = error)
   }
 
 }
