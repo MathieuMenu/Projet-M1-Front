@@ -27,8 +27,4 @@ export class PanierComponent implements OnInit {
   	this.mongoservice.getLocationsByEmail(this.profile.nickname).subscribe(data => this.Locations = data.json())
   }
 
-  delete(id){
-    this.mongoservice.deleteLocation(id).subscribe(data => this.ngOnInit())
-  }
-
 }
