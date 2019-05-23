@@ -9,6 +9,7 @@
     <td>Adresse 1</td>
     <td>Adresse 2</td>
     <td>Adresse 3</td>
+    <td>Supprimer</td>
   </tr>
 
   <tr *ngFor="let obj of Locations" style="border: 1px solid black;">
@@ -20,6 +21,7 @@
     <td>{{obj.add1}}</td>
     <td>{{obj.add2}}</td>
     <td>{{obj.add3}}</td>
+    <button (click)="delete(obj._id)">Supprimer</button>
   </tr>
     
   </table>
