@@ -6,6 +6,8 @@ import { DebugElement } from '@angular/core';
 import { AuthService } from './../auth/auth.service';
 import { MongoService } from './../service/mongo.service';
 
+import { HttpModule } from '@angular/http'
+
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserModule } from '@angular/platform-browser';
 import { AgmCoreModule } from '@agm/core';
@@ -29,7 +31,8 @@ describe('HomeComponent', () => {
         RouterTestingModule,
         BrowserModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        HttpModule,
       ],
       declarations: [
         HomeComponent,
