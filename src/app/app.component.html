@@ -12,15 +12,15 @@
       <button
         class="btn btn-primary btn-margin"
         *ngIf="auth.isAuthenticated()"
-        routerLink="/profile">
-          Profil
+        routerLink="/panier">
+          Panier
       </button>
 
       <button
         class="btn btn-primary btn-margin"
         *ngIf="auth.isAuthenticated()"
-        (click)="auth.renewToken()">
-        MàJ_Token
+        routerLink="/profile">
+          Profil
       </button>
 
       <button
