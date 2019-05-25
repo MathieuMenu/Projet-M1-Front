@@ -14,13 +14,16 @@ import { HomeComponent } from './home/home.component';
 import { AuthService } from './auth/auth.service';
 import { ProfileComponent } from './profile/profile.component';
 import { CallbackComponent } from './callback/callback.component';
+import { PanierComponent } from './panier/panier.component';
+import { MongoService } from './service/mongo.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ProfileComponent,
-    CallbackComponent
+    CallbackComponent,
+    PanierComponent
   ],
   imports: [
   	AgmCoreModule.forRoot({
@@ -33,7 +36,7 @@ import { CallbackComponent } from './callback/callback.component';
     HttpModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService],
+  providers: [AuthService,MongoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

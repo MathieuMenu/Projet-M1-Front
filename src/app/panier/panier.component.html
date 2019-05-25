@@ -1,0 +1,28 @@
+ <div *ngIf="auth.isAuthenticated()">
+  <table>
+  <tr style="border: 1px solid black;">
+    <td>Id</td>
+    <td>Titre</td>
+    <td>Email</td>
+    <td>Longitude</td>
+    <td>Latitude</td>
+    <td>Adresse 1</td>
+    <td>Adresse 2</td>
+    <td>Adresse 3</td>
+    <td>Supprimer</td>
+  </tr>
+
+  <tr *ngFor="let obj of Locations" style="border: 1px solid black;">
+    <td>{{obj._id}}</td>
+    <td>{{obj.titre}}</td>
+    <td>{{obj.email}}</td>
+    <td>{{obj.long}}</td>
+    <td>{{obj.lat}}</td>
+    <td>{{obj.add1}}</td>
+    <td>{{obj.add2}}</td>
+    <td>{{obj.add3}}</td>
+    <button (click)="delete(obj._id)">Supprimer</button>
+  </tr>
+    
+  </table>
+ </div>
