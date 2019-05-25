@@ -24,13 +24,6 @@
       </button>
 
       <button
-        class="btn btn-primary btn-margin"
-        *ngIf="auth.isAuthenticated()"
-        (click)="auth.renewToken()">
-        MàJ_Token
-      </button>
-
-      <button
         id="qsLoginBtn"
         class="btn btn-primary btn-margin"
         *ngIf="!auth.isAuthenticated()"
