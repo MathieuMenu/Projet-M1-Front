@@ -37,27 +37,9 @@ export class PanierComponent implements OnInit {
   trie = function(){
     var Locations2 = this.Locations;
 
-    this.shuffle(Locations2);
+    Locations2.sort(function(a, b){return 0.5 - Math.random()});
 
     console.log(Locations2);
-  }
-
-  randomInt = function (min, max) {
-    return (min + Math.floor ((max - min + 1) * Math.random ()));
-  }
-
-  shuffle = function (items) {
-      var i, j;
-      var item;
-      if ((!items.length) || (items.length == 1)){
-        return;
-      }
-      for (i = items.length - 1; i != 0; i --) {
-          j = this.randomInt (0, i);
-          item = items[j];
-          items[j] = items[i];
-          items[i] = item;
-      }
   }
 
 }
