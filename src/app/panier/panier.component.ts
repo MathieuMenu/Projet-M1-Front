@@ -11,6 +11,7 @@ export class PanierComponent implements OnInit {
 
   profile: any;
   Locations: any;
+  Locations2: any;
 
   constructor(private mongoservice: MongoService, public auth: AuthService) { }
 
@@ -35,12 +36,9 @@ export class PanierComponent implements OnInit {
   }
 
   trie = function(){
-    var Locations2 = this.Locations;
-
-    this.shuffleArray(Locations2);
-    this.shuffleArray(Locations2);
-
-    console.log(Locations2);
+    this.Locations2 = this.shuffleArray(this.Locations);
+   
+    console.log(this.Locations2);
   }
 
   shuffleArray = function(array) {
