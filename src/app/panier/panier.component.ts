@@ -9,6 +9,7 @@ import { AuthService } from './../auth/auth.service';
 })
 export class PanierComponent implements OnInit {
 
+  check: any;
   profile: any;
   Locations: any;
   Locations2: any;
@@ -36,9 +37,9 @@ export class PanierComponent implements OnInit {
   }
 
   trie = function(){
-    this.Locations2 = this.shuffleArray(this.Locations);
+    this.check = true;
    
-    console.log(this.Locations2);
+    console.log(this.Locations);
   }
 
   shuffleArray = function(array) {
