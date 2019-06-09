@@ -38,18 +38,12 @@ export class PanierComponent implements OnInit {
   trie = function(){
     this.check = true;
 
-    this.shuffleArray(this.Locations)
+    let shuffled = this.Locations
+  .map((a) => ({sort: Math.random(), value: a}))
+  .sort((a, b) => a.sort - b.sort)
+  .map((a) => a.value)
    
-    console.log(this.Locations);
+    console.log(shuffled);
   }
-
-  shuffleArray = function(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-    }
-}
 
 }
