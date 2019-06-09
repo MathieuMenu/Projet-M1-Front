@@ -27,6 +27,8 @@ export class PanierComponent implements OnInit {
     }
     
   	this.mongoservice.getLocationsByEmail(this.profile.nickname).subscribe(data => this.Locations = data.json())
+
+    this.Locations2 = this.Locations;
   }
 
   delete = function(id){
@@ -38,15 +40,10 @@ export class PanierComponent implements OnInit {
 
   trie = function(){
     this.check = true;
-   
-    console.log(this.Locations);
-  }
 
-  shuffleArray = function(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
+    this.Locations2.sort(function (a, b) {return Math.random() - 0.5;});
+   
+    console.log(this.Locations2);
   }
 
 }
