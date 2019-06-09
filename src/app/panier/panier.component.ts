@@ -12,7 +12,6 @@ export class PanierComponent implements OnInit {
   check: any;
   profile: any;
   Locations: any;
-  Locations2: any;
 
   constructor(private mongoservice: MongoService, public auth: AuthService) { }
 
@@ -27,8 +26,6 @@ export class PanierComponent implements OnInit {
     }
     
   	this.mongoservice.getLocationsByEmail(this.profile.nickname).subscribe(data => this.Locations = data.json())
-
-    this.Locations2 = this.Locations;
   }
 
   delete = function(id){
@@ -41,9 +38,9 @@ export class PanierComponent implements OnInit {
   trie = function(){
     this.check = true;
 
-    this.shuffleArray(this.Locations2)
+    this.shuffleArray(this.Locations)
    
-    console.log(this.Locations2);
+    console.log(this.Locations);
   }
 
   shuffleArray = function(array) {
