@@ -52,6 +52,6 @@ export class PanierComponent implements OnInit {
         if (obj.hasOwnProperty(key)) size++;
     }
     return size;
-  };
+  }
 
 }
