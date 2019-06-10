@@ -47,7 +47,7 @@ export class PanierComponent implements OnInit {
   }
 
   Object.size = function(obj) {
-    var size = 0, key;
+    var size = 0;
     for (key in obj) {
         if (obj.hasOwnProperty(key)) size++;
     }
