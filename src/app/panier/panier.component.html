@@ -46,7 +46,10 @@
 
   <tr>
     <td>08-12</td>
-    <td *ngIf="size(Locations) > 0"><p>{{Locations[0].titre}}</p></td>
+    <td *ngIf="size(Locations) > 0">
+    <p>{{Locations[0].titre}}</p>
+    <p>{{Locations[0].add1}}</p>
+    </td>
     <td></td>
     <td></td>
     <td></td>
@@ -57,7 +60,10 @@
 
   <tr>
     <td>14-18</td>
-    <td></td>
+    <td *ngIf="size(Locations) > 1">
+    <p>{{Locations[1].titre}}</p>
+    <p>{{Locations[1].add1}}</p>
+    </td>
     <td></td>
     <td></td>
     <td>Jeudi Aprem</td>
