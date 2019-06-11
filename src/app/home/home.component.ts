@@ -14,8 +14,6 @@ import { MongoService } from './../service/mongo.service';
 })
 export class HomeComponent implements OnInit{
 
-  Locations: any;
-
   profile: any;
   title = 'mmfront';
 
@@ -37,8 +35,6 @@ export class HomeComponent implements OnInit{
   }
 
   ngOnInit() {
-
-    this.mongoservice.getLocationsByEmail(this.profile.nickname).subscribe(data => this.Locations = data.json())
 
   	this.zoom = 8;
     this.latitude = 49.8489;
@@ -95,37 +91,23 @@ export class HomeComponent implements OnInit{
 
   addPanier = function(){
 
-    if(this.size(this.Locations > 13)){
-      var titre = document.getElementsByClassName("title");
+    var titre = document.getElementsByClassName("title");
 
-      var address = document.getElementsByClassName("address-line");
+    var address = document.getElementsByClassName("address-line");
 
-      var poi = {
-        long:this.persoLong,
-        lat:this.persoLat,
-        add1:address[0].innerHTML,
-        add2:address[1].innerHTML,
-        add3:address[2].innerHTML,
-        titre:titre[0].innerHTML,
-        email:this.profile.nickname
-      }
-
-      this.mongoservice.saveLocation(poi)
-      .subscribe(data => { alert(data.data) }, error => this.errorMessage = error)
-    }
-    else{
-      throw new Error('Vous posséder deja 14 point d\'intêret dans votre panier, veuillez en supprimer pour en rajouter');
+    var poi = {
+      long:this.persoLong,
+      lat:this.persoLat,
+      add1:address[0].innerHTML,
+      add2:address[1].innerHTML,
+      add3:address[2].innerHTML,
+      titre:titre[0].innerHTML,
+      email:this.profile.nickname
     }
 
+    this.mongoservice.saveLocation(poi)
+    .subscribe(data => { alert(data.data) }, error => this.errorMessage = error)
     
-  }
-
-  size = function(obj) {
-    var size = 0;
-    for (var key in obj) {
-        if (obj.hasOwnProperty(key)) size++;
-    }
-    return size;
   }
 
 }
