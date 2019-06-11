@@ -50,12 +50,30 @@
     <p>{{Locations[0].titre}}</p>
     <p>{{Locations[0].add1}}</p>
     </td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td *ngIf="size(Locations) > 2">
+    <p>{{Locations[2].titre}}</p>
+    <p>{{Locations[2].add1}}</p>
+    </td>
+    <td *ngIf="size(Locations) > 4">
+    <p>{{Locations[4].titre}}</p>
+    <p>{{Locations[4].add1}}</p>
+    </td>
+    <td *ngIf="size(Locations) > 6">
+    <p>{{Locations[6].titre}}</p>
+    <p>{{Locations[6].add1}}</p>
+    </td>
+    <td *ngIf="size(Locations) > 8">
+    <p>{{Locations[8].titre}}</p>
+    <p>{{Locations[8].add1}}</p>
+    </td>
+    <td *ngIf="size(Locations) > 10">
+    <p>{{Locations[10].titre}}</p>
+    <p>{{Locations[10].add1}}</p>
+    </td>
+    <td *ngIf="size(Locations) > 12">
+    <p>{{Locations[12].titre}}</p>
+    <p>{{Locations[12].add1}}</p>
+    </td>
   </tr>
 
   <tr>
@@ -64,12 +82,30 @@
     <p>{{Locations[1].titre}}</p>
     <p>{{Locations[1].add1}}</p>
     </td>
-    <td></td>
-    <td></td>
-    <td>Jeudi Aprem</td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td *ngIf="size(Locations) > 3">
+    <p>{{Locations[3].titre}}</p>
+    <p>{{Locations[3].add1}}</p>
+    </td>
+    <td *ngIf="size(Locations) > 5">
+    <p>{{Locations[5].titre}}</p>
+    <p>{{Locations[5].add1}}</p>
+    </td>
+    <td *ngIf="size(Locations) > 7">
+    <p>{{Locations[7].titre}}</p>
+    <p>{{Locations[7].add1}}</p>
+    </td>
+    <td *ngIf="size(Locations) > 9">
+    <p>{{Locations[9].titre}}</p>
+    <p>{{Locations[9].add1}}</p>
+    </td>
+    <td *ngIf="size(Locations) > 11">
+    <p>{{Locations[11].titre}}</p>
+    <p>{{Locations[11].add1}}</p>
+    </td>
+    <td *ngIf="size(Locations) > 13">
+    <p>{{Locations[13].titre}}</p>
+    <p>{{Locations[13].add1}}</p>
+    </td>
   </tr>
 
   </table>
