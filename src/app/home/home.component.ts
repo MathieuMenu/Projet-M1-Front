@@ -93,7 +93,7 @@ export class HomeComponent implements OnInit{
 
     var location = this.mongoservice.getLocationsByEmail(this.profile.nickname).subscribe(data => this.Locations = data.json());
 
-    if(this.size(location) == 0){
+    if(this.size(location) < 14){
       var titre = document.getElementsByClassName("title");
 
       var address = document.getElementsByClassName("address-line");
@@ -110,7 +110,7 @@ export class HomeComponent implements OnInit{
 
       this.mongoservice.saveLocation(poi)
       .subscribe(data => { alert(data.data) }, error => this.errorMessage = error)
-      
+
     }
     
   }
