@@ -46,34 +46,38 @@
 
   <tr>
     <td>08-12</td>
-    <td *ngIf="size(Locations) > 0">
+    <td *ngIf="size(Locations) > 0;else blank">
     <p>{{Locations[0].titre}}</p>
     <p>{{Locations[0].add1}}</p>
     </td>
-    <td *ngIf="size(Locations) > 2">
+    <td *ngIf="size(Locations) > 2;else blank">
     <p>{{Locations[2].titre}}</p>
     <p>{{Locations[2].add1}}</p>
     </td>
-    <td *ngIf="size(Locations) > 4">
+    <td *ngIf="size(Locations) > 4;else blank">
     <p>{{Locations[4].titre}}</p>
     <p>{{Locations[4].add1}}</p>
     </td>
-    <td *ngIf="size(Locations) > 6">
+    <td *ngIf="size(Locations) > 6;else blank">
     <p>{{Locations[6].titre}}</p>
     <p>{{Locations[6].add1}}</p>
     </td>
-    <td *ngIf="size(Locations) > 8">
+    <td *ngIf="size(Locations) > 8;else blank">
     <p>{{Locations[8].titre}}</p>
     <p>{{Locations[8].add1}}</p>
     </td>
-    <td *ngIf="size(Locations) > 10">
+    <td *ngIf="size(Locations) > 10;else blank">
     <p>{{Locations[10].titre}}</p>
     <p>{{Locations[10].add1}}</p>
     </td>
-    <td *ngIf="size(Locations) > 12">
+    <td *ngIf="size(Locations) > 12;else blank">
     <p>{{Locations[12].titre}}</p>
     <p>{{Locations[12].add1}}</p>
     </td>
+
+    <ng-template #blank>
+      &nbsp;
+    </ng-template>
   </tr>
 
   <tr>

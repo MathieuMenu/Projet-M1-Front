@@ -91,23 +91,36 @@ export class HomeComponent implements OnInit{
 
   addPanier = function(){
 
-    var titre = document.getElementsByClassName("title");
+    var location = this.mongoservice.getLocationsByEmail(this.profile.nickname).subscribe(data => this.Locations = data.json());
 
-    var address = document.getElementsByClassName("address-line");
+    if(this.size(location) == 0){
+      var titre = document.getElementsByClassName("title");
 
-    var poi = {
-      long:this.persoLong,
-      lat:this.persoLat,
-      add1:address[0].innerHTML,
-      add2:address[1].innerHTML,
-      add3:address[2].innerHTML,
-      titre:titre[0].innerHTML,
-      email:this.profile.nickname
+      var address = document.getElementsByClassName("address-line");
+
+      var poi = {
+        long:this.persoLong,
+        lat:this.persoLat,
+        add1:address[0].innerHTML,
+        add2:address[1].innerHTML,
+        add3:address[2].innerHTML,
+        titre:titre[0].innerHTML,
+        email:this.profile.nickname
+      }
+
+      this.mongoservice.saveLocation(poi)
+      .subscribe(data => { alert(data.data) }, error => this.errorMessage = error)
+      
     }
-
-    this.mongoservice.saveLocation(poi)
-    .subscribe(data => { alert(data.data) }, error => this.errorMessage = error)
     
+  }
+
+  size = function(obj) {
+    var size = 0;
+    for (var key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
   }
 
 }
