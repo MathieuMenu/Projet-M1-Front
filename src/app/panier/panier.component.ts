@@ -38,6 +38,8 @@ export class PanierComponent implements OnInit {
 
   trie = function(){
 
+    console.log(this.size(this.Locations));
+
     this.check = true;
 
     let shuffled = this.Locations

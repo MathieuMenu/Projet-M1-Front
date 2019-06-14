@@ -93,8 +93,6 @@ export class HomeComponent implements OnInit{
 
     var location = this.mongoservice.getLocationsByEmail(this.profile.nickname).subscribe(data => this.Locations = data.json());
 
-    console.log(this.size(location));
-
     if(this.size(location) < 14){
 
       var titre = document.getElementsByClassName("title");
