@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit{
   public longitude: number;
   public searchControl: FormControl;
   public zoom: number;
+  public Locations:any;
 
   public persoLong:number;
   public persoLat:number;
@@ -71,6 +72,8 @@ export class HomeComponent implements OnInit{
       this.profile = this.auth.userProfile;
     }
 
+    this.mongoservice.getLocationsByEmail(this.profile.nickname).subscribe(data => this.Locations = data.json());
+
   }
 
   private setCurrentPosition() {
@@ -91,9 +94,9 @@ export class HomeComponent implements OnInit{
 
   addPanier = function(){
 
-    var location = this.mongoservice.getLocationsByEmail(this.profile.nickname).subscribe(data => this.Locations = data.json());
+    var location = this.size(this.Locations);
 
-    if(this.size(location) < 14){
+    if(location < 14){
 
       var titre = document.getElementsByClassName("title");
 
