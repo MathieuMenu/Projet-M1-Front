@@ -21,14 +21,14 @@
         <td>{{obj.add1}}</td>
         <td>{{obj.add2}}</td>
         <td>{{obj.add3}}</td>
-        <button (click)="delete(obj._id)">Supprimer</button>
+        <button class="btn btn-primary" (click)="delete(obj._id)">Supprimer</button>
       </tr>
 
     </tbody>
     
   </table>
 
-  <button (click)="trie()">Générer l'agenda !</button>
+  <button class="btn btn-primary" (click)="trie()">Générer l'agenda !</button>
 
 <div *ngIf="check == true">
   <table>
