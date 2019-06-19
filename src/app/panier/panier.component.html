@@ -21,17 +21,17 @@
         <td>{{obj.add1}}</td>
         <td>{{obj.add2}}</td>
         <td>{{obj.add3}}</td>
-        <button class="btn btn-light" (click)="delete(obj._id)">Supprimer</button>
+        <button class="btn btn-outline-dark btn-margin" (click)="delete(obj._id)">Supprimer</button>
       </tr>
 
     </tbody>
     
   </table>
 
-  <button class="btn btn-primary" (click)="trie()">Générer l'agenda !</button>
+  <button class="btn btn-outline-primary btn-margin" (click)="trie()">Générer l'agenda !</button>
 
 <div *ngIf="check == true">
-  <table>
+  <table border="1">
 
   <tr>
 
@@ -99,9 +99,6 @@
     </div>
     </td>
 
-    <!-- <ng-template #blank>
-      &nbsp;
-    </ng-template> -->
   </tr>
 
   <tr>
