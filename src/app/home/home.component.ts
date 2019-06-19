@@ -116,6 +116,9 @@ export class HomeComponent implements OnInit{
       .subscribe(data => { alert(data.data) }, error => this.errorMessage = error)
 
     }
+    else{
+      throw new Error('Vous avez deja 14 élements dans votre panier veuillez en supprimer');
+    }
     
   }
 

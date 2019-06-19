@@ -12,7 +12,7 @@ export class PanierComponent implements OnInit {
   check: any;
   profile: any;
   Locations: any;
-
+  Locations2: any;
   constructor(private mongoservice: MongoService, public auth: AuthService) { }
 
   ngOnInit() {
@@ -25,7 +25,7 @@ export class PanierComponent implements OnInit {
       });
     }
     
-  	this.mongoservice.getLocationsByEmail(this.profile.nickname).subscribe(data => this.Locations = data.json())
+  	this.mongoservice.getLocationsByEmail(this.profile.nickname).subscribe(data => this.Locations2 = data.json())
 
   }
 
@@ -39,6 +39,8 @@ export class PanierComponent implements OnInit {
   trie = function(){
 
     this.check = true;
+
+    this.Locations = this.Locations2
 
     let shuffled = this.Locations
   .map((a) => ({sort: Math.random(), value: a}))
