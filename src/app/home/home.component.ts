@@ -117,7 +117,7 @@ export class HomeComponent implements OnInit{
 
     }
     else{
-      throw new Error('Vous avez deja 14 élements dans votre panier veuillez en supprimer');
+      throw Error('Vous avez deja 14 élements dans votre panier veuillez en supprimer');
     }
     
   }

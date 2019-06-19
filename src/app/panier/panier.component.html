@@ -1,24 +1,30 @@
  <div *ngIf="auth.isAuthenticated()">
-  <table>
-  <tr style="border: 1px solid black;">
-    <td>Titre</td>
-    <td>Longitude</td>
-    <td>Latitude</td>
-    <td>Adresse 1</td>
-    <td>Adresse 2</td>
-    <td>Adresse 3</td>
-    <td>Supprimer</td>
-  </tr>
+  <table class="table">
+    <thead>
+      <tr style="border: 1px solid black;">
+        <td>Titre</td>
+        <td>Longitude</td>
+        <td>Latitude</td>
+        <td>Adresse 1</td>
+        <td>Adresse 2</td>
+        <td>Adresse 3</td>
+        <td>Supprimer</td>
+      </tr>
+    </thead>
 
-  <tr *ngFor="let obj of Locations2" style="border: 1px solid black;">
-    <td>{{obj.titre}}</td>
-    <td>{{obj.long}}</td>
-    <td>{{obj.lat}}</td>
-    <td>{{obj.add1}}</td>
-    <td>{{obj.add2}}</td>
-    <td>{{obj.add3}}</td>
-    <button (click)="delete(obj._id)">Supprimer</button>
-  </tr>
+    <tbody>
+
+    <tr *ngFor="let obj of Locations2" style="border: 1px solid black;">
+      <td>{{obj.titre}}</td>
+      <td>{{obj.long}}</td>
+      <td>{{obj.lat}}</td>
+      <td>{{obj.add1}}</td>
+      <td>{{obj.add2}}</td>
+      <td>{{obj.add3}}</td>
+      <button (click)="delete(obj._id)">Supprimer</button>
+    </tr>
+
+    </tbody>
     
   </table>
 
