@@ -54,7 +54,7 @@ export class PanierComponent implements OnInit {
   }
 
   dureeadd(test){
-    this.Distance.push(test);
+    this.Duree.push(test);
   }
 
   delete = function(id){
