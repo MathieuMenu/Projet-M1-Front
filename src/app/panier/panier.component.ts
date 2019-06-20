@@ -16,6 +16,7 @@ export class PanierComponent implements OnInit {
   Locations2: any;
   Distance: any = [];
   directionsService: any;
+  letest:any;
   constructor(private mongoservice: MongoService, public auth: AuthService,private mapsAPILoader: MapsAPILoader) { }
 
   ngOnInit() {
@@ -40,7 +41,8 @@ export class PanierComponent implements OnInit {
     
     this.directionsService.route({origin:originlat+","+originlong, destination:destinationlat+","+destinationlong, travelMode:google.maps.TravelMode.DRIVING}, function(result, status){
       if(status == google.maps.DirectionsStatus.OK){
-        this.this.log(result.routes[0].legs[0].distance.text);
+        this.this.letest = (result.routes[0].legs[0].distance.text);
+        console.log(this.this.letest);
       }
     });
     
