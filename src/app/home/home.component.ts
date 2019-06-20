@@ -6,6 +6,7 @@ import { FormControl } from '@angular/forms';
 import { MapsAPILoader } from '@agm/core';
 
 import { MongoService } from './../service/mongo.service';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-home',
@@ -31,7 +32,7 @@ export class HomeComponent implements OnInit{
   @ViewChild("search")
   public searchElementRef: ElementRef;
 
-  constructor(public auth: AuthService,private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private mongoservice: MongoService) { }
+  constructor(private http: Http,public auth: AuthService,private mapsAPILoader: MapsAPILoader, private ngZone: NgZone, private mongoservice: MongoService) { }
 
   get expiresAt() {
     return this.auth.expiresAt;
