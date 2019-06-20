@@ -68,14 +68,13 @@ export class PanierComponent implements OnInit {
     this.Locations = shuffled;
 
     this.Distance = [];
-//this.size(this.Locations)
-    for(let i = 0; i < 2;i=i+2){
+
+    for(let i = 14; i < 1;i=i-2){
       if(this.Locations[i+1]){
         this.getpos(this.Locations[i].lat,this.Locations[i].long,this.Locations[i+1].lat,this.Locations[i+1].long);
-        console.log(this.Locations[i]);
       } 
     }
-    console.log(this.Distance);
+
     this.check = true;
 
   }
