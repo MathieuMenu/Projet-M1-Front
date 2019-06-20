@@ -15,6 +15,7 @@ export class PanierComponent implements OnInit {
   Locations: any;
   Locations2: any;
   Distance: any = [];
+  directionsService: any;
   constructor(private mongoservice: MongoService, public auth: AuthService,private mapsAPILoader: MapsAPILoader) { }
 
   ngOnInit() {
@@ -27,18 +28,20 @@ export class PanierComponent implements OnInit {
       });
     }
     
-  	this.mongoservice.getLocationsByEmail(this.profile.nickname).subscribe(data => this.Locations2 = data.json())
+    this.mongoservice.getLocationsByEmail(this.profile.nickname).subscribe(data => this.Locations2 = data.json())
+    
+    this.mapsAPILoader.load().then(() => {
+    this.directionsService = new google.maps.DirectionsService();
+    });
 
   }
 
   getpos(originlat,originlong,destinationlat,destinationlong){
-    this.mapsAPILoader.load().then(() => {
-      let directionsService = new google.maps.DirectionsService();
-      directionsService.route({origin:originlat+","+originlong, destination:destinationlat+","+destinationlong, travelMode:google.maps.TravelMode.DRIVING}, function(result, status){
-        if(status == google.maps.DirectionsStatus.OK){
-          return (result.routes[0].legs[0].distance.text);
-        }
-      });
+    
+    this.directionsService.route({origin:originlat+","+originlong, destination:destinationlat+","+destinationlong, travelMode:google.maps.TravelMode.DRIVING}, function(result, status){
+      if(status == google.maps.DirectionsStatus.OK){
+        return (result.routes[0].legs[0].distance.text);
+      }
     });
   }
 
@@ -53,8 +56,7 @@ export class PanierComponent implements OnInit {
 
     for(let i = 0; i < this.size(this.Locations2);i=i+2){
       if(this.Locations2[i+1]){
-        let test = this.getpos(this.Locations2[i].lat,this.Locations2[i].long,this.Locations2[i+1].lat,this.Locations2[i+1].long);
-        console.log(test);
+        this.getpos(this.Locations2[i].lat,this.Locations2[i].long,this.Locations2[i+1].lat,this.Locations2[i+1].long);
       } 
     }
 
