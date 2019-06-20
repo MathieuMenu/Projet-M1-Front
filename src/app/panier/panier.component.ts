@@ -14,6 +14,7 @@ export class PanierComponent implements OnInit {
   profile: any;
   Locations: any;
   Locations2: any;
+  Distance:any;
   constructor(private mongoservice: MongoService, public auth: AuthService,private mapsAPILoader: MapsAPILoader) { }
 
   ngOnInit() {
@@ -61,6 +62,16 @@ export class PanierComponent implements OnInit {
   .map((a) => a.value)
    
     this.Locations = shuffled;
+
+    for(let i = 0; i < this.size(this.Locations2);i++){
+      var kms;
+      if(this.size(this.Locations2) > 1){
+        kms = this.getpos(this.Locations2[i].lat,this.Locations2[i].long,this.Locations2[i+1].lat,this.Locations2[i+1].long);
+        console.log(kms);
+        this.Distance.add(kms);
+      } 
+    }
+
   }
 
   size = function(obj) {
