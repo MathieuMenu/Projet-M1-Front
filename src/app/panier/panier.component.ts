@@ -39,12 +39,16 @@ export class PanierComponent implements OnInit {
 
   getpos(originlat,originlong,destinationlat,destinationlong){
     
-    this.directionsService.route({origin:originlat+","+originlong, destination:destinationlat+","+destinationlong, travelMode:google.maps.TravelMode.DRIVING}, function(result, status){
-      if(status == google.maps.DirectionsStatus.OK){
+    this.directionsService.route({origin:originlat+","+originlong, destination:destinationlat+","+destinationlong, travelMode:google.maps.TravelMode.DRIVING}, (result, status) => {
         var test = (result.routes[0].legs[0].distance.text);
-      }
-    }).subscribe(data => this.montest = data);
+        this.montest = test;
+        this.log(test);
+    });
     
+  }
+
+  log(test){
+    console.log(test);
   }
 
   delete = function(id){
