@@ -27,8 +27,6 @@ export class HomeComponent implements OnInit{
   public persoLong:number;
   public persoLat:number;
 
-  public distance:any;
-
   @ViewChild("search")
   public searchElementRef: ElementRef;
 
@@ -52,6 +50,13 @@ export class HomeComponent implements OnInit{
 
     //load Places Autocomplete
     this.mapsAPILoader.load().then(() => {
+      let directionsService = new google.maps.DirectionsService();
+      directionsService.route({origin:'Saint-Quentin', destination:'Tergnier', travelMode:google.maps.TravelMode.DRIVING}, function(result, status){
+        if(status == google.maps.DirectionsStatus.OK){
+          console.log(result);
+        }
+      });
+
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
       autocomplete.addListener("place_changed", () => {
         this.ngZone.run(() => {
