@@ -3,6 +3,10 @@ import { MongoService } from './../service/mongo.service';
 import { AuthService } from './../auth/auth.service';
 import { MapsAPILoader } from '@agm/core';
 
+export class distance {
+  dist: any;
+}
+
 @Component({
   selector: 'panier',
   templateUrl: './panier.component.html',
@@ -14,7 +18,7 @@ export class PanierComponent implements OnInit {
   profile: any;
   Locations: any;
   Locations2: any;
-  Distance: string[];
+  Distance: distance[];
   constructor(private mongoservice: MongoService, public auth: AuthService,private mapsAPILoader: MapsAPILoader) { }
 
   ngOnInit() {
