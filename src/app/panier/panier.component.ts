@@ -39,7 +39,8 @@ export class PanierComponent implements OnInit {
   getpos(originlat,originlong,destinationlat,destinationlong){
     
     this.directionsService.route({origin:originlat+","+originlong, destination:destinationlat+","+destinationlong, travelMode:google.maps.TravelMode.DRIVING}, (result, status) => {
-        var test = (result.routes[0].legs[0].distance.text);
+      console.log(result);
+      var test = (result.routes[0].legs[0].distance.text);
         this.log(test);
     });
     
@@ -74,8 +75,6 @@ export class PanierComponent implements OnInit {
         this.getpos(this.Locations[i].lat,this.Locations[i].long,this.Locations[i+1].lat,this.Locations[i+1].long);
       } 
     }
-
-    this.Distance.reverse();
 
     this.check = true;
 
