@@ -40,7 +40,6 @@ export class PanierComponent implements OnInit {
   getpos(originlat,originlong,destinationlat,destinationlong){
     
     this.directionsService.route({origin:originlat+","+originlong, destination:destinationlat+","+destinationlong, travelMode:google.maps.TravelMode.DRIVING}, (result, status) => {
-      console.log(result);
       //var distance = (result.routes[0].legs[0].distance.text);
       var duree = (result.routes[0].legs[0].duration.text);
       //this.distanceadd(distance);
