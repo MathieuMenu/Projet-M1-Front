@@ -36,7 +36,7 @@ export class PanierComponent implements OnInit {
       let directionsService = new google.maps.DirectionsService();
       directionsService.route({origin:originlat+","+originlong, destination:destinationlat+","+destinationlong, travelMode:google.maps.TravelMode.DRIVING}, function(result, status){
         if(status == google.maps.DirectionsStatus.OK){
-          console.log(result.routes[0].legs[0].distance.text);
+          return (result.routes[0].legs[0].distance.text);
         }
       });
     });
@@ -53,7 +53,8 @@ export class PanierComponent implements OnInit {
 
     for(let i = 0; i < this.size(this.Locations2);i=i+2){
       if(this.Locations2[i+1]){
-        this.getpos(this.Locations2[i].lat,this.Locations2[i].long,this.Locations2[i+1].lat,this.Locations2[i+1].long);
+        let test = this.getpos(this.Locations2[i].lat,this.Locations2[i].long,this.Locations2[i+1].lat,this.Locations2[i+1].long);
+        console.log(test);
       } 
     }
 
