@@ -16,6 +16,7 @@ export class PanierComponent implements OnInit {
   Locations2: any;
   Distance: any = [];
   directionsService: any;
+  directionDisplay: any;
   montest:any;
   constructor(private mongoservice: MongoService, public auth: AuthService,private mapsAPILoader: MapsAPILoader) { }
 
@@ -33,6 +34,7 @@ export class PanierComponent implements OnInit {
     
     this.mapsAPILoader.load().then(() => {
       this.directionsService = new google.maps.DirectionsService();
+      this.directionDisplay = new google.maps.DirectionsRenderer();
     });
 
   }
@@ -42,11 +44,11 @@ export class PanierComponent implements OnInit {
     this.directionsService.route({origin:originlat+","+originlong, destination:destinationlat+","+destinationlong, travelMode:google.maps.TravelMode.DRIVING}, function(result, status){
       if(status == google.maps.DirectionsStatus.OK){
         var test = (result.routes[0].legs[0].distance.text);
-        this.montest = test;
+        this.directionDisplay.setDirections(test);
       }
     });
 
-    console.log(this.montest);
+    console.log(this.directionDisplay);
     
   }
 
