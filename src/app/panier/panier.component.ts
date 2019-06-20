@@ -69,11 +69,13 @@ export class PanierComponent implements OnInit {
 
     this.Distance = [];
 
-    for(let i = 14; i < 1;i=i-2){
-      if(this.Locations[i-1]){
-        this.getpos(this.Locations[i].lat,this.Locations[i].long,this.Locations[i-1].lat,this.Locations[i-1].long);
+    for(let i = 0; i < this.size(this.Locations);i=i+2){
+      if(this.Locations[i+1]){
+        this.getpos(this.Locations[i].lat,this.Locations[i].long,this.Locations[i+1].lat,this.Locations[i+1].long);
       } 
     }
+
+    this.Distance.reverse();
 
     this.check = true;
 
