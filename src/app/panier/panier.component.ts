@@ -38,11 +38,12 @@ export class PanierComponent implements OnInit {
 
   getpos(originlat,originlong,destinationlat,destinationlong){
     
-    this.directionsService.route({origin:originlat+","+originlong, destination:destinationlat+","+destinationlong, travelMode:google.maps.TravelMode.DRIVING}, function(result, status){
+    var montest = this.directionsService.route({origin:originlat+","+originlong, destination:destinationlat+","+destinationlong, travelMode:google.maps.TravelMode.DRIVING}, function(result, status){
       if(status == google.maps.DirectionsStatus.OK){
         return (result.routes[0].legs[0].distance.text);
       }
     });
+    return montest;
   }
 
   delete = function(id){
@@ -56,7 +57,8 @@ export class PanierComponent implements OnInit {
 
     for(let i = 0; i < this.size(this.Locations2);i=i+2){
       if(this.Locations2[i+1]){
-        this.getpos(this.Locations2[i].lat,this.Locations2[i].long,this.Locations2[i+1].lat,this.Locations2[i+1].long);
+        let test = this.getpos(this.Locations2[i].lat,this.Locations2[i].long,this.Locations2[i+1].lat,this.Locations2[i+1].long);
+        console.log(test);
       } 
     }
 
