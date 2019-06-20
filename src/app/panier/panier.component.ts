@@ -36,7 +36,6 @@ export class PanierComponent implements OnInit {
       let directionsService = new google.maps.DirectionsService();
       directionsService.route({origin:originlat+","+originlong, destination:destinationlat+","+destinationlong, travelMode:google.maps.TravelMode.DRIVING}, function(result, status){
         if(status == google.maps.DirectionsStatus.OK){
-          console.log(result);
           return result.routes[0].legs[0].distance.text;
         }
       });
@@ -52,6 +51,16 @@ export class PanierComponent implements OnInit {
 
   trie = function(){
 
+    for(let i = 0; i < this.size(this.Locations2);i=i+2){
+      if(this.Locations2[i+1]){
+        var kms = this.getpos(this.Locations2[i].lat,this.Locations2[i].long,this.Locations2[i+1].lat,this.Locations2[i+1].long);
+        console.log(kms);
+        this.Distance.push(kms);
+      } 
+    }
+
+    console.log(this.Distance);
+
     this.check = true;
 
     this.Locations = this.Locations2
@@ -63,14 +72,7 @@ export class PanierComponent implements OnInit {
    
     this.Locations = shuffled;
 
-    for(let i = 0; i < this.size(this.Locations2);i=i+2){
-      if(this.Locations2[i+1]){
-        var kms = this.getpos(this.Locations2[i].lat,this.Locations2[i].long,this.Locations2[i+1].lat,this.Locations2[i+1].long);
-        this.Distance.push(kms);
-      } 
-    }
-
-    console.log(this.Distance);
+    console.log(this.Locations);
 
   }
 
