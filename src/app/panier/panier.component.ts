@@ -16,7 +16,6 @@ export class PanierComponent implements OnInit {
   Locations2: any;
   Distance: any = [];
   directionsService: any;
-  montest:any;
   constructor(private mongoservice: MongoService, public auth: AuthService,private mapsAPILoader: MapsAPILoader) { }
 
   ngOnInit() {
@@ -41,14 +40,13 @@ export class PanierComponent implements OnInit {
     
     this.directionsService.route({origin:originlat+","+originlong, destination:destinationlat+","+destinationlong, travelMode:google.maps.TravelMode.DRIVING}, (result, status) => {
         var test = (result.routes[0].legs[0].distance.text);
-        this.montest = test;
         this.log(test);
     });
     
   }
 
   log(test){
-    console.log(test);
+    this.Distance.push(test);
   }
 
   delete = function(id){
@@ -63,7 +61,6 @@ export class PanierComponent implements OnInit {
     for(let i = 0; i < this.size(this.Locations2);i=i+2){
       if(this.Locations2[i+1]){
         this.getpos(this.Locations2[i].lat,this.Locations2[i].long,this.Locations2[i+1].lat,this.Locations2[i+1].long);
-        console.log(this.montest);
       } 
     }
 
