@@ -37,6 +37,7 @@ export class PanierComponent implements OnInit {
       directionsService.route({origin:originlat+","+originlong, destination:destinationlat+","+destinationlong, travelMode:google.maps.TravelMode.DRIVING}, function(result, status){
         if(status == google.maps.DirectionsStatus.OK){
           console.log(result);
+          return result.routes[0].legs[0].distance.text;
         }
       });
     });
