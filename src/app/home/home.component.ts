@@ -36,6 +36,18 @@ export class HomeComponent implements OnInit{
     return this.auth.expiresAt;
   }
 
+  getpos(originlat,originlong,destinationlat,destinationlong){
+    this.mapsAPILoader.load().then(() => {
+      let directionsService = new google.maps.DirectionsService();
+      directionsService.route({origin:'Saint-Quentin', destination:'Tergnier', travelMode:google.maps.TravelMode.DRIVING}, function(result, status){
+        if(status == google.maps.DirectionsStatus.OK){
+          console.log(result);
+          console.log(result.routes[0].legs[0].distance.text);
+        }
+      });
+    });
+  }
+
   ngOnInit() {
 
   	this.zoom = 8;
