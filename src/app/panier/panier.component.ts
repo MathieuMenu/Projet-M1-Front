@@ -14,7 +14,7 @@ export class PanierComponent implements OnInit {
   profile: any;
   Locations: any;
   Locations2: any;
-  Distance: any = [];
+  //Distance: any = [];
   Duree:any = [];
   directionsService: any;
   constructor(private mongoservice: MongoService, public auth: AuthService,private mapsAPILoader: MapsAPILoader) { }
@@ -41,17 +41,17 @@ export class PanierComponent implements OnInit {
     
     this.directionsService.route({origin:originlat+","+originlong, destination:destinationlat+","+destinationlong, travelMode:google.maps.TravelMode.DRIVING}, (result, status) => {
       console.log(result);
-      var distance = (result.routes[0].legs[0].distance.text);
+      //var distance = (result.routes[0].legs[0].distance.text);
       var duree = (result.routes[0].legs[0].duration.text);
-      this.distanceadd(distance);
+      //this.distanceadd(distance);
       this.dureeadd(duree);
     });
     
   }
 
-  distanceadd(test){
-    this.Distance.push(test);
-  }
+  // distanceadd(test){
+  //   this.Distance.push(test);
+  // }
 
   dureeadd(test){
     this.Duree.push(test);
@@ -75,7 +75,7 @@ export class PanierComponent implements OnInit {
    
     this.Locations = shuffled;
 
-    this.Distance = [];
+    // this.Distance = [];
     this.Duree = [];
 
     for(let i = 0; i < this.size(this.Locations);i=i+2){
