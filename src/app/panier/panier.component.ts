@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MongoService } from './../service/mongo.service';
 import { AuthService } from './../auth/auth.service';
+import { MapsAPILoader } from '@agm/core';
 
 @Component({
   selector: 'panier',
@@ -13,7 +14,7 @@ export class PanierComponent implements OnInit {
   profile: any;
   Locations: any;
   Locations2: any;
-  constructor(private mongoservice: MongoService, public auth: AuthService) { }
+  constructor(private mongoservice: MongoService, public auth: AuthService,private mapsAPILoader: MapsAPILoader) { }
 
   ngOnInit() {
 
@@ -27,6 +28,18 @@ export class PanierComponent implements OnInit {
     
   	this.mongoservice.getLocationsByEmail(this.profile.nickname).subscribe(data => this.Locations2 = data.json())
 
+  }
+
+  getpos(originlat,originlong,destinationlat,destinationlong){
+    this.mapsAPILoader.load().then(() => {
+      let directionsService = new google.maps.DirectionsService();
+      directionsService.route({origin:'Saint-Quentin', destination:'Tergnier', travelMode:google.maps.TravelMode.DRIVING}, function(result, status){
+        if(status == google.maps.DirectionsStatus.OK){
+          console.log(result);
+          console.log(result.routes[0].legs[0].distance.text);
+        }
+      });
+    });
   }
 
   delete = function(id){

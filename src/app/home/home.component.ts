@@ -36,18 +36,6 @@ export class HomeComponent implements OnInit{
     return this.auth.expiresAt;
   }
 
-  getpos(originlat,originlong,destinationlat,destinationlong){
-    this.mapsAPILoader.load().then(() => {
-      let directionsService = new google.maps.DirectionsService();
-      directionsService.route({origin:'Saint-Quentin', destination:'Tergnier', travelMode:google.maps.TravelMode.DRIVING}, function(result, status){
-        if(status == google.maps.DirectionsStatus.OK){
-          console.log(result);
-          console.log(result.routes[0].legs[0].distance.text);
-        }
-      });
-    });
-  }
-
   ngOnInit() {
 
   	this.zoom = 8;
@@ -62,13 +50,6 @@ export class HomeComponent implements OnInit{
 
     //load Places Autocomplete
     this.mapsAPILoader.load().then(() => {
-      let directionsService = new google.maps.DirectionsService();
-      directionsService.route({origin:'Saint-Quentin', destination:'Tergnier', travelMode:google.maps.TravelMode.DRIVING}, function(result, status){
-        if(status == google.maps.DirectionsStatus.OK){
-          console.log(result);
-        }
-      });
-
       let autocomplete = new google.maps.places.Autocomplete(this.searchElementRef.nativeElement);
       autocomplete.addListener("place_changed", () => {
         this.ngZone.run(() => {
@@ -149,7 +130,5 @@ export class HomeComponent implements OnInit{
     }
     return size;
   }
-
-    //this.http.get('https://maps.googleapis.com/maps/api/directions/json?origin=49.662127924296264,3.281543254852295&destination=49.657280276230104,3.2983875274658203&key=AIzaSyC3XF5TNYa5R_k69Ik2_bjmf_URIPgYK7s').subscribe(data => this.distance = data.json())
-
+  
 }
