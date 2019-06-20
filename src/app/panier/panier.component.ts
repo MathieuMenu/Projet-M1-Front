@@ -16,6 +16,7 @@ export class PanierComponent implements OnInit {
   Locations2: any;
   Distance: any = [];
   directionsService: any;
+  montest:any;
   constructor(private mongoservice: MongoService, public auth: AuthService,private mapsAPILoader: MapsAPILoader) { }
 
   ngOnInit() {
@@ -31,20 +32,21 @@ export class PanierComponent implements OnInit {
     this.mongoservice.getLocationsByEmail(this.profile.nickname).subscribe(data => this.Locations2 = data.json())
     
     this.mapsAPILoader.load().then(() => {
-    this.directionsService = new google.maps.DirectionsService();
+      this.directionsService = new google.maps.DirectionsService();
     });
 
   }
 
   getpos(originlat,originlong,destinationlat,destinationlong){
     
-    var test2 = this.directionsService.route({origin:originlat+","+originlong, destination:destinationlat+","+destinationlong, travelMode:google.maps.TravelMode.DRIVING}, function(result, status){
-      //if(status == google.maps.DirectionsStatus.OK){
+    this.directionsService.route({origin:originlat+","+originlong, destination:destinationlat+","+destinationlong, travelMode:google.maps.TravelMode.DRIVING}, function(result, status){
+      if(status == google.maps.DirectionsStatus.OK){
         var test = (result.routes[0].legs[0].distance.text);
-        return test;
-      //}
+        this.montest = test;
+      }
     });
-    console.log(test2);
+
+    console.log(this.montest);
     
   }
 
