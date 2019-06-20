@@ -47,7 +47,6 @@ export class PanierComponent implements OnInit {
 
   log(test){
     this.Distance.push(test);
-    console.log(this.Distance);
   }
 
   delete = function(id){
@@ -59,14 +58,6 @@ export class PanierComponent implements OnInit {
 
   trie = function(){
 
-    for(let i = 0; i < this.size(this.Locations2);i=i+2){
-      if(this.Locations2[i+1]){
-        this.getpos(this.Locations2[i].lat,this.Locations2[i].long,this.Locations2[i+1].lat,this.Locations2[i+1].long);
-      } 
-    }
-
-    this.check = true;
-
     this.Locations = this.Locations2
 
     let shuffled = this.Locations
@@ -75,6 +66,16 @@ export class PanierComponent implements OnInit {
   .map((a) => a.value)
    
     this.Locations = shuffled;
+
+    this.Distance = [];
+
+    for(let i = 0; i < this.size(this.Locations);i=i+2){
+      if(this.Locations[i+1]){
+        this.getpos(this.Locations[i].lat,this.Locations[i].long,this.Locations[i+1].lat,this.Locations[i+1].long);
+      } 
+    }
+
+    this.check = true;
 
   }
 
