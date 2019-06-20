@@ -65,9 +65,8 @@ export class PanierComponent implements OnInit {
 
     for(let i = 0; i < this.size(this.Locations2);i++){
       var kms;
-      if(this.size(this.Locations2) > 1){
+      if(this.Locations2[i+1]){
         kms = this.getpos(this.Locations2[i].lat,this.Locations2[i].long,this.Locations2[i+1].lat,this.Locations2[i+1].long);
-        console.log(kms);
         this.Distance.add(kms);
       } 
     }
