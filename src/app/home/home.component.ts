@@ -133,10 +133,6 @@ export class HomeComponent implements OnInit{
     return size;
   }
 
-  getdiff = function(){
-    this.http.get('https://maps.googleapis.com/maps/api/directions/json?origin=49.662127924296264,3.281543254852295&destination=49.657280276230104,3.2983875274658203&key=AIzaSyC3XF5TNYa5R_k69Ik2_bjmf_URIPgYK7s').subscribe(data => this.distance = data.json())
-
-    console.log(this.distance);
-  }
+    //this.http.get('https://maps.googleapis.com/maps/api/directions/json?origin=49.662127924296264,3.281543254852295&destination=49.657280276230104,3.2983875274658203&key=AIzaSyC3XF5TNYa5R_k69Ik2_bjmf_URIPgYK7s').subscribe(data => this.distance = data.json())
 
 }
