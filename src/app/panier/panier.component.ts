@@ -40,13 +40,17 @@ export class PanierComponent implements OnInit {
     
     var montest = this.directionsService.route({origin:originlat+","+originlong, destination:destinationlat+","+destinationlong, travelMode:google.maps.TravelMode.DRIVING}, function(result, status){
       if(status == google.maps.DirectionsStatus.OK){
-        console.log(result.routes[0].legs[0].distance.text);
+        console.log(this.size(this.Locations));
+        this.log(result.routes[0].legs[0].distance.text);
         return (result.routes[0].legs[0].distance.text);
       }
     });
-    console.log(montest);
     return montest;
     
+  }
+
+  log(truc){
+    console.log(truc);
   }
 
   delete = function(id){
@@ -60,7 +64,7 @@ export class PanierComponent implements OnInit {
 
     for(let i = 0; i < this.size(this.Locations2);i=i+2){
       if(this.Locations2[i+1]){
-        let test = this.getpos(this.Locations2[i].lat,this.Locations2[i].long,this.Locations2[i+1].lat,this.Locations2[i+1].long);
+        this.getpos(this.Locations2[i].lat,this.Locations2[i].long,this.Locations2[i+1].lat,this.Locations2[i+1].long);
       } 
     }
 
