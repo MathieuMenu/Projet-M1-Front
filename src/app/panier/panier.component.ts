@@ -15,7 +15,6 @@ export class PanierComponent implements OnInit {
   Locations: any;
   Locations2: any;
   Duree:any = [];
-  directionsService: any;
   constructor(private mongoservice: MongoService, public auth: AuthService,private mapsAPILoader: MapsAPILoader) { }
 
   ngOnInit() {
@@ -30,17 +29,15 @@ export class PanierComponent implements OnInit {
     
     this.mongoservice.getLocationsByEmail(this.profile.nickname).subscribe(data => this.Locations2 = data.json())
     
-    this.mapsAPILoader.load().then(() => {
-      this.directionsService = new google.maps.DirectionsService();
-    });
-
   }
 
   getpos(originlat,originlong,destinationlat,destinationlong){
-    
-    this.directionsService.route({origin:originlat+","+originlong, destination:destinationlat+","+destinationlong, travelMode:google.maps.TravelMode.DRIVING}, (result, status) => {
-      var duree = (result.routes[0].legs[0].duration.text);
-      this.dureeadd(duree);
+    this.mapsAPILoader.load().then(() => {
+      var directionsService = new google.maps.DirectionsService();
+      directionsService.route({origin:originlat+","+originlong, destination:destinationlat+","+destinationlong, travelMode:google.maps.TravelMode.DRIVING}, (result, status) => {
+        var duree = (result.routes[0].legs[0].duration.text);
+        this.dureeadd(duree);
+      });
     });
     
   }
